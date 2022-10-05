@@ -28,7 +28,8 @@ if(isset($_POST['Envoyer'])) {
             $_SESSION['email'] = $email;
             $_SESSION['pwd'] = $pwd;
             $_SESSION['id'] = $recupUser->fetch()['id'];
-            header('Location :Compte.php');
+            header('Location :index.php');
+ 
         }else{
             echo 'email ou mot de passe incorrect';
         }

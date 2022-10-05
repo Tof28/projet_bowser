@@ -1,6 +1,16 @@
 <?php 
-//AJOUTER UN UTILISATEUR 
-$requete = $bdd->query('INSERT INTO users(fisrt_name, last_name, address, orders_id, sign_in_date) VALUES("Christophe", "BOISSIER", "1 rue du bois, 00000 Trou du Q", CURRENT TIMESTAMP');
+session_start();
+if(!$_SESSION['pwd']) {
+    header('Location: Connexion.php');
+}
+try {
+    $bdd = new PDO('mysql:host=217.160.41.177:6033;dbname=retro_game;charset=utf8', 'root', 'CaGratte28000');
+    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo ('connexion ok');
+} catch(Exception $e) {
+    die('Erreur: '.$e->getMessage());
+}
+ob_flush();
 ?>
 <!DOCTYPE html>
 <html lang="en">
