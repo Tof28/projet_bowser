@@ -1,24 +1,37 @@
 <?php
-ini_set('error_reporting', E_ALL);
+session_start();
 try {
     $bdd = new PDO('mysql:host=217.160.41.177:6033;dbname=retro_game;charset=utf8', 'root', 'CaGratte28000');
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+ 
 } catch(Exception $e) {
     die('Erreur: '.$e->getMessage());
 }
-if(isset($_POST['envoi'])) {
-    if(!empty($_POST['email']) AND !empty($_POST['pwd']) AND !empty($_POST['adresse'])
-    AND !empty($_POST['prenom']) AND !empty($_POST['nom'])) {
+if(isset($_POST['Envoyer'])) {
+    
+    if(!empty($_POST['email']) and !empty($_POST['pwd']) and !empty($_POST['adresse'])
+        and !empty($_POST['prenom']) and !empty($_POST['nom'])) {
         $email = htmlspecialchars($_POST['email']);
         $pwd = sha1($_POST['pwd']);
         $adresse = htmlspecialchars($_POST['adresse']);
         $prenom = htmlspecialchars($_POST['prenom']);
         $nom = htmlspecialchars($_POST['nom']);
         $createUser = $bdd->prepare('INSERT INTO users(email, pwd, adresse, prenom, nom)VALUES(?, ?, ?, ?, ?)');
-        $createUser->execute(array($email, $pwd, $adresse, $prenom,$nom));
+        $createUser->execute(array($email, $pwd, $adresse, $prenom, $nom));
         echo('Enregistrement ok');
+
+        $recupUser = $bdd->prepare('SELECT * FROM users WHERE email = ? AND pwd = ?');
+        $recupUser->execute(array($email, $pwd));
+        if($recupUser->rowCount()>0) {
+        
+        $_SESSION['email'] = $email;
+        $_SESSION['pwd'] = $pwd;
+        $_SESSION['id'] = $recupUser->fetch()['id'];
+        header('Location:index.php');
+    }
+
     }else{
-        echo 'Veuillez remplir tous les champs';
+        echo ('Veuillez remplir tous les champs');
     }
 }
 ?>
@@ -28,7 +41,8 @@ if(isset($_POST['envoi'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription</title>
+    <link rel="stylesheet" href="style.css"/>
+    <title class="title">Inscription</title>
 </head>
 <body>
     <form method="POST" action="Enregstrer.php">
