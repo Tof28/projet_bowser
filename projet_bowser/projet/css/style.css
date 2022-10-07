@@ -1,0 +1,22 @@
+*{
+    padding: 0;
+}
+.body {
+    font-family: Arial;
+}
+.En-tete {
+    height: 50px;
+    width: 100%;
+    background-color: #f5225c;
+    align-content: stretch;
+    justify-content: space-between;
+}
+.latest {
+    justify-content: space-between;
+}
+.logo {
+    align-content: flex-end;
+}
+.navbar_panier {
+    align-items: flex-end;
+}
