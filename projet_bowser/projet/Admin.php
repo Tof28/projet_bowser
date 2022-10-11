@@ -8,14 +8,14 @@ try {
     die('Erreur: '.$e->getMessage());
 }
 if(isset($_POST['Envoyer'])) {
-    if(!empty($_POST['pseudo']) and !empty($_POST['pwd'])) {
-        $pseudo_par_defaut = "admin";
+    if(!empty($_POST['email']) and !empty($_POST['pwd'])) {
+        $email_par_defaut = "admin@exemple.com";
         $pwd_par_defaut = "admin1234";
-        $pseudo_saisi = htmlspecialchars(($_POST['pseudo']));
+        $email_saisi = htmlspecialchars(($_POST['email']));
         $pwd_saisi = htmlspecialchars($_POST['pwd']);
-        if ($pseudo_saisi == $pseudo_par_defaut and $pwd_saisi == $pwd_par_defaut) {
+        if ($email_saisi == $email_par_defaut and $pwd_saisi == $pwd_par_defaut) {
             $_SESSION['pwd'] = $pwd_saisi;
-            header('Location: ./index.php');
+            header('Location: index.php');
         }else{
             echo "Votre mot de passe ou votre pseudo est incorrect";
         }
@@ -40,7 +40,7 @@ ob_flush();
     <?php include_once('En-tete.php') ?>
 
     <form method="POST" action="Admin.php">
-            <input type="text" name="pseudo" autocomplete="off">pseudo</input>
+            <input type="email" name="email" autocomplete="off">Email</input>
             <br>
             <input type="password" name="pwd" class="pwd" autocomplete="off">Mot de passe</input>
             <br>

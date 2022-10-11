@@ -1,11 +1,13 @@
 <?php
 session_start();
-echo $_SESSION['email'];
 try {
     $bdd = new PDO('mysql:host=217.160.41.177:6033;dbname=retro_game;charset=utf8', 'root', 'CaGratte28000');
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch(Exception $e) {
     die('Erreur: '.$e->getMessage());
+}
+if(!$_SESSION['mdp']) {
+    header('Location: Connexion.php');
 }
 ?>
 <!DOCTYPE html>
@@ -28,7 +30,6 @@ try {
                 <li><h3>Michel Nukem</h3></li>    
             </ul>
         </div>
-        
         <img class="logo" src="projet_bowser/img/RetroGame.png">
         <?php include_once ('Pied.php')?>
     </body>
