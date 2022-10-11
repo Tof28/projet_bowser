@@ -1,4 +1,5 @@
 <?php
+session_start();
 /*function ajouter($title, $synopsis, $price)
     {
         if(require("Connexion.php"))
@@ -48,9 +49,9 @@ function supprimer($id)
     <title>Commandes</title>
 </head>
 <body>
-    <?php include_once 'En-tete.php' ?>
+    <?php include_once ('En-tete.php') ?>
     
     
-    <?php include_once 'Pied.php'?>
+    <?php include_once ('Pied.php')?>
 </body>
 </html>

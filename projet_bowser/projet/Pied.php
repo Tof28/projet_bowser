@@ -17,9 +17,8 @@ session_start();
 <body>
 <div class="card text-center">
   <div class="Pied">
-    <h5 class="card-title">Copyright</h5>
-
-    <a href="#" class="btn btn-primary">Haut de page</a>
+    <h4 class="card-title">Copyright</h4>
+    <h4><a href="#" class="btn btn-primary">Haut de page</a></h4>
   </div>
 </div>
 </body>

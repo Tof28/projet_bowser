@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+require_once 'config.php';
 try {
     $bdd = new PDO('mysql:host=217.160.41.177:6033;dbname=retro_game;charset=utf8', 'root', 'CaGratte28000');
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -48,6 +48,7 @@ if(isset($_POST['Envoyer'])) {
             <br>
             <button type="submit" name="Envoyer">Envoyer</button>
         </form>
+        <img class="logo" src="projet_bowser/img/RetroGame.png">
     <?php include_once 'Pied.php'?>    
 </body>
 </html>

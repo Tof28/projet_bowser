@@ -22,12 +22,13 @@ try {
         <?php include_once ('En-tete.php') ?>
         <div class="Haut de page"></div>
         <div class="latest">
-            <ul><h4>Derniers ajouts</h4>
-                <li>Assassin</li>
-                <li>Revenge</li>
-                <li>Michel Nukem</li>    
+            <ul><h2>Derniers ajouts</h2>
+                <li><h3>Assassin</h3></li>
+                <li><h3>Revenge</h3></li>
+                <li><h3>Michel Nukem</h3></li>    
             </ul>
         </div>
+        
         <img class="logo" src="projet_bowser/img/RetroGame.png">
         <?php include_once ('Pied.php')?>
     </body>
