@@ -2,7 +2,7 @@
 session_start();
 require_once 'config.php';
 try {
-    $bdd = new PDO('mysql:host=217.160.41.177:6033;dbname=retro_game;charset=utf8', 'root', 'CaGratte28000');
+    $bdd = new PDO('mysql:host= localhost:6033;dbname=retro_game;charset=utf8', 'root', '');
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch(Exception $e) {
     die('Erreur: '.$e->getMessage());

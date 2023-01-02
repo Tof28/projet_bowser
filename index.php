@@ -1,7 +1,7 @@
 <?php
 session_start();
 try {
-    $bdd = new PDO('mysql:localhost:6033;dbname=retro_game;charset=utf8', 'root', 'CaGratte28000');
+    $bdd = new PDO('mysql:host=localhost:8080;dbname=retro_game;charset=utf8', 'root', '');
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch(Exception $e) {
     die('Erreur: '.$e->getMessage());

@@ -4,7 +4,7 @@ if(!$_SESSION['pwd']) {
     header('Location: Connexion.php');
 }
 try {
-    $bdd = new PDO('mysql:localhost:6033;dbname=retro_game;charset=utf8', 'root', 'CaGratte28000');
+    $bdd = new PDO('mysql:localhost:8080;dbname=retro_game;charset=utf8', 'root', 'CaGratte28000');
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo ('connexion ok');
 } catch(Exception $e) {
